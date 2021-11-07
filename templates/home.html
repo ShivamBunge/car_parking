@@ -190,26 +190,26 @@
                 <input class="InputStyle" placeholder="Enter value between 1-15  " style="font-family:Arial, FontAwesome" name="entry" type="text">
                 <br>
                 <button class="InputStyle"  style="font-family:Arial, FontAwesome" type="submit" id="open-popup-1">Entry</button>
-            </form>
+            
         </p>
         <p>
-            <form>
+            
                 <button class="InputStyle"  style="font-family:Arial, FontAwesome" type="submit">Exit</button>
             </form>
         </p>
     </div>
     
-    <div id="popup-1">
-        <div class="popup-content">
-            <h1>Popup Title</h1>
+    <!-- <div id="popup-1"> -->
+        <div class="errors"><!-- class="popup-content" -->
+            <!-- <h1>Popup Title</h1> -->
             <p>{% for msg in messages %}
                 <h3>
                     {{msg}}
                 </h3>
                 {% endfor %} </p>
-            <button id="close-popup-1">Close</button>
+            <!-- <button id="close-popup-1">Close</button> -->
         </div>
-    </div>
+    <!-- </div> -->
     <!--Div for bottom Icons-->
     <div class="social-btn"> <a href="#" title="Facebook"><i class="fa fa-facebook"></i></a> <a href="#" title="Twitter"><i class="fa fa-twitter"></i></a>
     </div>

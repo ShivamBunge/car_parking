@@ -7,4 +7,4 @@ class Booking(models.Model):
     vehicle_no= models.IntegerField(max_length=100)    
     booked=models.BooleanField(default=False)
     entry= models.DateTimeField(default=timezone.now)
-    exit= models.DateTimeField(default=timezone.now)
+    exit= models.DateTimeField()
