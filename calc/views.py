@@ -14,11 +14,11 @@ def home(request):
 def entry(request):
     
     a=request.POST['entry']
-    p=Booking.objects.filter(id=a)
+    p=Booking.objects.filter(parking_id=a)
     
     
     if p.exists() :
-        person=Booking.objects.get(id=a)
+        person=Booking.objects.get(parking_id=a)
         d={"parking_id":person.parking_id,"vehicle_no":person.vehicle_no,"entry":person.entry}
         return render(request,"receipt.html",d)      
     else:
@@ -30,8 +30,8 @@ def entry(request):
 def exit(request):
     
     a=request.POST['entry']
-    p=Booking.objects.filter(id=a)
-    person=Booking.objects.get(id=a)
+    p=Booking.objects.filter(parking_id=a)
+    person=Booking.objects.get(parking_id=a)
     print(person.parking_id)
     if p.exists() :
         d={"parking_id":person.parking_id,"vehicle_no":person.vehicle_no,"entry":person.entry,"exit":str(datetime.datetime.now())}
