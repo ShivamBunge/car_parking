@@ -34,9 +34,8 @@ def exit(request):
     person=Booking.objects.get(id=a)
     print(person.parking_id)
     if p.exists() :
-        print(str(datetime.datetime.now()))
-        d={"parking_id":person.parking_id,"vehicle_no":person.vehicle_no,"entry":person.entry,"exit":person.exit}
-        return render(request,"receipt2.html",d)      
+        d={"parking_id":person.parking_id,"vehicle_no":person.vehicle_no,"entry":person.entry,"exit":str(datetime.datetime.now())}
+        return render(request,"receipt.html",d)      
     else:
         messages.info(request, "enter slot between 1-15")
         return render(request,"home.html") 
