@@ -108,7 +108,8 @@
             background: transparent;
             color:white;
             width: 300px;
-            padding: 10px 20px
+            font-size: 20px;
+            padding: 10px 20px;
         }
         
         input,
@@ -188,7 +189,7 @@
             <form action="entry" method="post">
                 {% csrf_token %}
                 <input class="InputStyle" placeholder="Enter value between 1-15  " style="font-family:Arial, FontAwesome" name="entry" type="text">
-                <br>
+                <br><br><br>
                 <button class="InputStyle"  style="font-family:Arial, FontAwesome" type="submit" id="open-popup-1">Entry</button>
             
         </p>
@@ -198,34 +199,24 @@
             </form>
         </p>
     </div>
+    {% for msg in messages %}   
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                  
+        {{msg}}    
+               
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+    </button>
+    {% endfor %} 
+</div> 
     
-    <!-- <div id="popup-1"> -->
-        <div class="errors"><!-- class="popup-content" -->
-            <!-- <h1>Popup Title</h1> -->
-            <p>{% for msg in messages %}
-                <h3>
-                    {{msg}}
-                </h3>
-                {% endfor %} </p>
-            <!-- <button id="close-popup-1">Close</button> -->
-        </div>
-    <!-- </div> -->
-    <!--Div for bottom Icons-->
+    
     <div class="social-btn"> <a href="#" title="Facebook"><i class="fa fa-facebook"></i></a> <a href="#" title="Twitter"><i class="fa fa-twitter"></i></a>
     </div>
 </div>
     <script>
-        var popup1 = document.getElementById("popup-1")
-var openPopup1 = document.getElementById("open-popup-1")
-var closePopup1 = document.getElementById('close-popup-1')
-
-openPopup1.addEventListener('click', () => {
-	popup1.style.display = "block";
-})
-
-closePopup1.addEventListener('click', () => {
-	popup1.style.display = "none";
-})
+        $(".alert").alert()
+       
     </script>
 </body>
 </html>
