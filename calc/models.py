@@ -8,3 +8,5 @@ class Booking(models.Model):
     booked=models.BooleanField(default=False)
     entry= models.DateTimeField(default=timezone.now)
     exit= models.DateTimeField()
+    def save(self,*args,**kwargs):
+        super().save(*args,**kwargs)

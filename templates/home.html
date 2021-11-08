@@ -189,15 +189,20 @@
             <form action="entry" method="post">
                 {% csrf_token %}
                 <input class="InputStyle" placeholder="Enter value between 1-15  " style="font-family:Arial, FontAwesome" name="entry" type="text">
-                <br><br><br>
+                <br><br>
                 <button class="InputStyle"  style="font-family:Arial, FontAwesome" type="submit" id="open-popup-1">Entry</button>
-            
-        </p>
-        <p>
-            
-                <button class="InputStyle"  style="font-family:Arial, FontAwesome" type="submit">Exit</button>
             </form>
         </p>
+        <div><br></div>
+        <form action="exit" method="post">
+            <p>
+            {% csrf_token %}
+        
+            <input class="InputStyle" placeholder="Enter value between 1-15  " style="font-family:Arial, FontAwesome" name="entry" type="text">
+            <br><br>
+                <button class="InputStyle"  style="font-family:Arial, FontAwesome" type="submit">Exit</button>
+           </p>
+        </form>
     </div>
     {% for msg in messages %}   
     <div class="alert alert-warning alert-dismissible fade show" role="alert">

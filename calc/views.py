@@ -1,9 +1,9 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
-from .models import Booking
+from . models import Booking
 from django.contrib import messages
 # Create your views here.
-import datetime
+from datetime import datetime
 
 
 def home(request):
@@ -15,10 +15,11 @@ def entry(request):
     
     a=request.POST['entry']
     p=Booking.objects.filter(parking_id=a)
-    
-    
+
     if p.exists() :
         person=Booking.objects.get(parking_id=a)
+        person.entry = datetime.now()    
+        person.save()
         d={"parking_id":person.parking_id,"vehicle_no":person.vehicle_no,"entry":person.entry}
         return render(request,"receipt.html",d)      
     else:
@@ -31,10 +32,12 @@ def exit(request):
     
     a=request.POST['entry']
     p=Booking.objects.filter(parking_id=a)
-    person=Booking.objects.get(parking_id=a)
-    print(person.parking_id)
+    
     if p.exists() :
-        d={"parking_id":person.parking_id,"vehicle_no":person.vehicle_no,"entry":person.entry,"exit":str(datetime.datetime.now())}
+        person=Booking.objects.get(parking_id=a)
+        person.exit = datetime.now()    
+        person.save()
+        d={"parking_id":person.parking_id,"vehicle_no":person.vehicle_no,"entry":person.entry,"exit":person.exit}
         return render(request,"receipt.html",d)      
     else:
         messages.info(request, "enter slot between 1-15")
