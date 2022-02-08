@@ -86,6 +86,7 @@
     
     </style> -->
     <style>
+
         #popup-1 {
             display: none;
             background-color: rgba(0,0,0,0.5);
@@ -108,7 +109,17 @@
             background: transparent;
             color:white;
             width: 300px;
-            font-size: 20px;
+            font-size: 14px;
+            padding: 10px 20px;
+        }
+        .InputStyleb {
+            border-radius: 25px;
+            border: solid 1px white;
+            background: transparent;
+            background-color: rgb(97, 1, 20);
+            color:white;
+            width: 300px;
+            font-size: 14px;
             padding: 10px 20px;
         }
         
@@ -120,7 +131,7 @@
         
         .social-btn {
             position: absolute;
-            bottom: 20px;
+            bottom: -10px;
             left: 47%
         }
         
@@ -142,11 +153,12 @@
         .secondLine {
             font-weight: 350;
             font-size: 15px;
-            margin-bottom: 15%;
+            margin-bottom: 1%;
             color: white
         }
         
         .firstLine {
+            padding-top: 100px;
             font-size: 30px;
             color: white
         }
@@ -159,7 +171,7 @@
         .bg {
             width: 100%;
             height: auto;
-            min-height: 100vh;
+            min-height: 150vh;
             background-color: brown;
             background-size: 100% 100%;
             background-position: top center
@@ -186,23 +198,34 @@
         <p>
         </p>
         <p>
-            <form action="entry" method="post">
+            <form class="form0" action="entry" method="post">
                 {% csrf_token %}
                 <input class="InputStyle" placeholder="Enter value between 1-15  " style="font-family:Arial, FontAwesome" name="entry" type="text">
-                <br><br>
-                <button class="InputStyle"  style="font-family:Arial, FontAwesome" type="submit" id="open-popup-1">Entry</button>
+                <br>
+                <button class="InputStyleb"  style="font-family:Arial, FontAwesome" type="submit" id="open-popup-1">Entry</button>
             </form>
         </p>
         <div><br></div>
-        <form action="exit" method="post">
+        <form class="form1" action="exit" method="post">
             <p>
             {% csrf_token %}
         
             <input class="InputStyle" placeholder="Enter value between 1-15  " style="font-family:Arial, FontAwesome" name="entry" type="text">
-            <br><br>
-                <button class="InputStyle"  style="font-family:Arial, FontAwesome" type="submit">Exit</button>
+            <br>
+                <button class="InputStyleb"  value="Exit" style="font-family:Arial, FontAwesome" type="submit">Exit</button>
            </p>
         </form>
+        <div><br></div>
+        <form class="form2" action="check_availability" method="post">
+            <p>
+            {% csrf_token %}       
+           
+            <button class="InputStyleb"  style="font-family:Arial, FontAwesome" type="submit">Check Nearest Available Space</button>
+                <br>
+           </p>
+           <p class="InputStyle" style="font-family:Arial, FontAwesome">Available: {{n}}</p>
+        </form>
+        
     </div>
     {% for msg in messages %}   
     <div class="alert alert-warning alert-dismissible fade show" role="alert">
