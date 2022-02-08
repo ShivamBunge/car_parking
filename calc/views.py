@@ -52,3 +52,9 @@ def check_availability(request):
     num=heap[0]
     print(num)
     return render(request,"home.html",{"n":num})
+
+def reset(request):
+    global heap
+    heap=[i for i in range(1,16)]
+    hq.heapify(heap)
+    return render(request,"home.html")

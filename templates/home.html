@@ -122,6 +122,16 @@
             font-size: 14px;
             padding: 10px 20px;
         }
+        .InputStylec {
+            border-radius: 25px;
+            border: solid 1px white;
+            background: transparent;
+            background-color: rgb(2, 36, 9);
+            color:white;
+            width: 300px;
+            font-size: 14px;
+            padding: 10px 20px;
+        }
         
         input,
         input::-webkit-input-placeholder {
@@ -221,11 +231,15 @@
             {% csrf_token %}       
            
             <button class="InputStyleb"  style="font-family:Arial, FontAwesome" type="submit">Check Nearest Available Space</button>
-                <br>
-           </p>
+            </p>
            <p class="InputStyle" style="font-family:Arial, FontAwesome">Available: {{n}}</p>
         </form>
-        
+        <form class="form2" action="reset" method="post">
+            <p>
+            {% csrf_token %}              
+            <button class="InputStylec"  style="font-family:Arial, FontAwesome" type="submit">Reset Parking Slots</button>
+            </p>
+        </form>
     </div>
     {% for msg in messages %}   
     <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -236,7 +250,7 @@
     <span aria-hidden="true">&times;</span>
     </button>
     {% endfor %} 
-</div> 
+    </div> 
     
     
     <div class="social-btn"> <a href="#" title="Facebook"><i class="fa fa-facebook"></i></a> <a href="#" title="Twitter"><i class="fa fa-twitter"></i></a>
